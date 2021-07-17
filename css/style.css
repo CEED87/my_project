@@ -6,6 +6,7 @@
     font-family: Roboto, sans-serif
 }
 
+
 a {
     text-decoration: none
 }
@@ -168,9 +169,9 @@ a {
     object-fit: cover
 }
 
-/* .tabcontent__descr {
+.tabcontent__descr {
     position: absolute;
-    top: 300px;
+    top: 263px;
     right: -177px;
     width: 550px;
     height: 359px;
@@ -180,7 +181,7 @@ a {
     font-weight: 300;
     line-height: 36px;
     color: rgba(0, 0, 0, .7)
-} */
+}
 
 .tabheader {
     width: 280px;
@@ -209,8 +210,9 @@ a {
     transition: .3s all
 }
 
-.tabheader__item:hover {
+ .active__item {
     font-size: 26px;
+    font-weight: bold;
 }
 
 .tabheader__item_active {
@@ -651,7 +653,13 @@ a {
     display: block;
     margin-top: 15px;
     font-size: 16px;
-    color: #fff
+    color: #fff;
+}
+
+.link__icons {
+    height: 25px;
+    margin: 10px;
+  
 }
 
 .footer .call {
