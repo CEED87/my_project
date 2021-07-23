@@ -24,7 +24,7 @@ tabheaderItem.addEventListener('click', (event) => {
     } 
 });
 
-// Slider foto
+// Slider MiniFoto
 
 const arrows = document.querySelector('.offer__slider-counter');
 const arrowRight = document.querySelector('img[alt="next"]');
@@ -32,27 +32,34 @@ const arrowLeft = document.querySelector('img[alt="prev"]');
 const imgSlide = document.querySelector('.mini').children;
 const offerSlide = document.querySelector('.offer__slide').firstElementChild;
 const current = arrows.querySelector('#current');
-
+const total = arrows.querySelector('#total');
 let count = 1;
 offerSlide.src = imgSlide[count-1].src;
+total.textContent = imgSlide.length;
 
+setCount(imgSlide.length, total);
 
 arrowRight.addEventListener('click', () => {
     if (current.textContent <= imgSlide.length-1) {
-        current.textContent = `0${++count}`;
-        offerSlide.src = imgSlide[count-1].src;
+        ++count;
+        setCount(count, current);
     } 
 });
     
 arrowLeft.addEventListener('click', () => {
     if (current.textContent > 1) {
-        current.textContent = `0${--count}`;
-        offerSlide.src = imgSlide[count-1].src;
-        console.log(current)
+        --count;
+        setCount(count, current);
     }
 });
 
-
+function setCount(par,par2) {
+    if (par < 10) {
+        par2.textContent = `0${par}`;
+    } else {
+        par2.textContent = `${par}`;
+    }
+}
 
 
 
