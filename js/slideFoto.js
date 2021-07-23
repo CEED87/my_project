@@ -42,6 +42,7 @@ setCount(imgSlide.length, total);
 arrowRight.addEventListener('click', () => {
     if (current.textContent <= imgSlide.length-1) {
         ++count;
+        offerSlide.src = imgSlide[count-1].src;
         setCount(count, current);
     } 
 });
@@ -49,6 +50,7 @@ arrowRight.addEventListener('click', () => {
 arrowLeft.addEventListener('click', () => {
     if (current.textContent > 1) {
         --count;
+        offerSlide.src = imgSlide[count-1].src;
         setCount(count, current);
     }
 });
