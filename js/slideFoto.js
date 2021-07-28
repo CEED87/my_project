@@ -12,12 +12,18 @@ tabheaderItem.addEventListener('click', (event) => {
     if (tab.className === 'tabheader__item') {
         actvTabe.classList.remove('active__item');
         tab.classList.add('active__item');
+        
 
         imgTab.forEach(el => {
             if (el.dataset.img === tab.dataset.tabe) {
                 let atrValue = el.firstElementChild.getAttribute('src');
                 let content = el.lastElementChild.textContent;
                 tabContent.firstElementChild.setAttribute('src',atrValue);
+                tabContent.classList.add('fade');
+                setTimeout(() => {
+                    tabContent.classList.remove('fade');
+                },500)
+                
                 tabContent.lastElementChild.textContent = content;
             }
         });
