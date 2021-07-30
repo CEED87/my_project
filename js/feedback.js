@@ -4,14 +4,14 @@ const modalTrigger = document.querySelector('button[data-modal]'),
         modal = document.querySelector('[data-user]'),
         modalCloseBtn = document.querySelectorAll('[data-close]'),
         addCard = document.querySelector('[data-card]'),
-        addCardBtn = document.querySelector('[href="#"]')
+        addCardBtn = document.querySelector('[href="#"]');
 
 
 const closeModal = (wind) => {
         wind.classList.add('hide');
         wind.classList.remove('show');
         document.body.style.overflow = '';
-}
+};
 
 const openModal = (wind) => {
         wind.classList.add('show');
@@ -26,7 +26,7 @@ modalCloseBtn.forEach((el) => {
         el.addEventListener('click', () => {
                 closeModal(modal);
                 closeModal(addCard);
-        })
+        });
 });
 
 modal.addEventListener('click', (e) => {
@@ -36,9 +36,9 @@ modal.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
-        if (e.code === "Escape" && modal.classList.contains('show') || addCard.classList.contains('show')) {
+        if (e.code === "Escape" && modal.classList.contains('show')) {
                 closeModal(modal);
-                closeModal(addCard);
+                // closeModal(addCard);
         }
 });
 

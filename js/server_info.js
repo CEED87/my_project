@@ -1,6 +1,10 @@
 const container = document.querySelector('div[data-cards]');
+const info = document.querySelector('[name="info"]');
+const nameMenu = info.previousElementSibling;
+const price = document.querySelector('[name="price"]');
+const foto = document.querySelector('[name="foto"]');
 
-const getCards = () => {
+   const getCards = () => {
     fetch('http://localhost:3000/cards').then(res => {
         return res.json();
     }).then(data => {
@@ -9,7 +13,7 @@ const getCards = () => {
             count++;
             if (count <= 3) {
                 container.innerHTML += `
-                                    <div class="menu__item">
+                                    <div class="menu__item card">
                                     <img src="${card.img}" alt="fitnes">
                                     <h3 class="menu__item-subtitle">${card.menu}</h3>
                                     <div class="menu__item-descr">${card.text}</div>
@@ -24,9 +28,36 @@ const getCards = () => {
             
         });
     });
-};
+}; 
+const addNewCard = () => {
+    fetch('http://localhost:3000/cards', {
+        method: "POST",
+        body: JSON.stringify({
+            "img": foto.value,
+            "menu": nameMenu.value,
+            "text": info.value,
+            "price": price.value
+        }),
+        headers: {
+          "Content-type": "application/json; charset=utf-8"
+        }
+      }).then(res => {
+        return res.json();
+      }).then(data => {
+        console.log(data);
+      });
+    };
+const dataServer = document.querySelector('[data-add_server]');
+
+dataServer.addEventListener('click', addNewCard);
+
+// console.log(dataServer)
 
 getCards();
+// addNewCard();
 
 
-//   console.log(card)
+
+
+
+//   
