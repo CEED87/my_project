@@ -78,6 +78,24 @@ a {
     margin-right: 0
 }
 
+.catalog {
+    position: absolute;
+    left: 314px;
+    top: 66px
+}
+
+.all__menu {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-content: space-around;
+    padding-top: 50px;
+}
+.card {
+    margin-top: 35px;
+}
+
+
 .header {
     display: flex;
     justify-content: space-between;

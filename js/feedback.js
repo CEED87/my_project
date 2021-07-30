@@ -34,30 +34,18 @@ document.addEventListener('keydown', (e) => {
 
 // feedback
 
-const order = document.querySelector('.order')
-let firstName = '';
-let phone = '';
-
-
-order.addEventListener('change', (event) => {
-        
-        const input = event.target;
-        
-        if (input.name === 'name') {
-                 firstName = input.value;
-                 console.log(firstName)
-        }
-        if (input.name === 'phone') {
-                phone = input.value;
-       }
-});
+const order = document.querySelector('.order');
+const firstName = document.querySelector('input[name="name"]');
+const phone = document.querySelector('input[name="phone"]');
 
 order.addEventListener('click', (event) => {
         event.preventDefault();
         if (event.target.className === 'btn btn_dark btn_min') {
-        console.log(`${firstName} ${phone}`);
+                console.log(firstName.value ,phone.value);
+                // console.log(firstName.value)
+                // console.log(phone.value)
+                firstName.value = '';
+                phone.value = '';
+                
         }
 });
-
-
- 
