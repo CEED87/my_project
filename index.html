@@ -75,9 +75,6 @@
                     Наша основная идея - это правильное питание. Оно может быть простым и вкусным. Мы не просто доставка, мы сервис! Мы взяли на себя все расчеты БЖУ, калорийности, объемов порций и прочие важные, но скучные аспекты. Вам остается только полезная, сытная и правильная еда, которую мы привозим прямо под дверь.
                 </div>
             </div>
-            <!-- <div class="offer__action">
-                <button data-modal class="btn btn_dark">Связаться с нами</button>
-            </div> -->
         </div>
         <div class="container">
             <div class="offer__advantages">
@@ -195,8 +192,8 @@
         <h2 class="title">Наше меню на день</h2>
 
         <div class="menu__field">
-            <div class="container">
-              <div class="menu__item">
+            <div class="container" data-cards>
+              <!-- <div class="menu__item">
                 <img src="img/tabs/fitnes.jpg" alt="fitnes">
                 <h3 class="menu__item-subtitle">Меню "Фитнес"</h3>
                 <div class="menu__item-descr">Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!</div>
@@ -225,7 +222,7 @@
                     <div class="menu__item-cost">Цена:</div>
                     <div class="menu__item-total"><span>25</span> руб/день</div>
                 </div>
-              </div>
+              </div> -->
             </div>
         </div>
     </div>
@@ -303,14 +300,29 @@
         </div>
     </footer>
 
-    <div class="modal">
+    <div class="modal" data-user>
         <div class="modal__dialog">
-            <div class="modal__content">
+            <div class="modal__content" >
                 <form action="#">
                     <div data-close class="modal__close">&times;</div>
                     <div class="modal__title">Мы свяжемся с вами как можно быстрее!</div>
                     <input required placeholder="Ваше имя" name="name" type="text" class="modal__input">
                     <input required placeholder="Ваш номер телефона" name="phone" type="phone" class="modal__input">
+                    <button class="btn btn_dark btn_min">Перезвонить мне</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal" data-card>
+        <div class="modal__dialog">
+            <div class="modal__content" >
+                <form action="#">
+                    <div data-close class="modal__close">&times;</div>
+                    <div class="modal__title">Добвьте своё меню</div>
+                    <input required placeholder="Название меню" name="name" type="text" class="modal__input">
+                    <input required placeholder="Описание" name="info" type="text" class="modal__input">
+                    <input required placeholder="Примерная стоимость" name="price" type="text" class="modal__input">
+                    <input required placeholder="Загрузите фото" name="foto" type="file"  class="modal__input">
                     <button class="btn btn_dark btn_min">Перезвонить мне</button>
                 </form>
             </div>
