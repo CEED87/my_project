@@ -319,8 +319,8 @@
                 <form action="#">
                     <div data-close class="modal__close">&times;</div>
                     <div class="modal__title">Добвьте своё меню</div>
-                    <label for="">Выберите категорию</label>
-                    <select name="" id="">
+                    <label for="" class="category">Выберите категорию</label>
+                    <select name="" id="" class="modal__input">
                         <option value="1">Утреннее меню</option>
                         <option value="2">Обеденное меню</option>
                         <option value="3">Вечернее меню</option>
@@ -328,7 +328,8 @@
                     <input required placeholder="Название меню" name="name" type="text" class="modal__input">
                     <input required placeholder="Описание" name="info" type="text" class="modal__input">
                     <input required placeholder="Примерная стоимость" name="price" type="text" class="modal__input">
-                    <input required placeholder="Загрузите фото" name="foto" type="file"  class="modal__input">
+                    <input required  name="foto" type="file" id="add_foto">
+                    <div class="modal__input" id="foto"><label for="add_foto" class="add_fopto">Добавить фото</label></div>
                     <button class="btn btn_dark btn_min" type="submit" data-add_server>Добавить карточку</button>
                 </form>
             </div>

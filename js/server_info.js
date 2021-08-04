@@ -3,8 +3,10 @@ const info = document.querySelector('[name="info"]');
 const nameMenu = info.previousElementSibling;
 const price = document.querySelector('[name="price"]');
 const foto = document.querySelector('[name="foto"]');
+const select = document.querySelector('select');
+const dataServer = document.querySelector('[data-add_server]');
 
-   const getCards = () => {
+const getCards = () => {
     fetch('http://localhost:3000/cards').then(res => {
         return res.json();
     }).then(data => {
@@ -28,12 +30,14 @@ const foto = document.querySelector('[name="foto"]');
             
         });
     });
-}; 
+};
+
 const addNewCard = () => {
     fetch('http://localhost:3000/cards', {
         method: "POST",
         body: JSON.stringify({
-            "img": foto.value,
+            "category": select.value,
+            "img": `img/new_cards/${foto.value.slice(12)}`  ,
             "menu": nameMenu.value,
             "text": info.value,
             "price": price.value
@@ -47,17 +51,13 @@ const addNewCard = () => {
         console.log(data);
       });
     };
-const dataServer = document.querySelector('[data-add_server]');
 
 dataServer.addEventListener('click', addNewCard);
 
-// console.log(dataServer)
 
 getCards();
-// addNewCard();
 
 
 
 
 
-//   
