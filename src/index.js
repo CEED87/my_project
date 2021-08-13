@@ -12,7 +12,7 @@ const router = () => {
     // calculator
 
     showCalculator.addEventListener('click', () => {
-        calculator.classList.toggle('hide');
+        calculator.classList.toggle('deployed');
     });
 
     gend.addEventListener('click', (event) => {

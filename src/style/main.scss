@@ -49,6 +49,7 @@ a {
   max-width: 1200px;
   margin: 0 auto
 }
+
 .header__links {
   display: flex;
   align-items: center
@@ -86,11 +87,13 @@ a {
 
 .all__menu {
   display: flex;
-  justify-content: space-evenly;;
+  justify-content: space-evenly;
+  ;
   flex-wrap: wrap;
   align-content: space-around;
   padding-top: 50px;
 }
+
 .card {
   margin-top: 35px;
   position: relative;
@@ -391,10 +394,21 @@ a {
 }
 
 .calculating__field {
+  padding: 0px 0px 0px 0px;
   width: 100%;
+  background: rgba(146, 242, 255, 0.15);
   margin-top: 50px;
-  background: rgba(146, 242, 255, .15);
-  padding: 30px 0 40px 0
+  overflow: hidden;
+  height: auto;
+  max-height: 0;
+  -webkit-transition: max-height 1s ease-in-out;
+  -moz-transition: max-height 1s ease-in-out;
+  -o-transition: max-height 1s ease-in-out;
+  transition: max-height 1s ease-in-out;
+}
+
+.deployed {
+  max-height: 600px;
 }
 
 .calculating__subtitle {
@@ -464,7 +478,7 @@ a {
   width: 200px
 }
 
-calculating__divider {
+.calculating__divider {
   width: 490px;
   height: 1px;
   margin: 40px auto;
@@ -541,7 +555,6 @@ calculating__divider {
   height: 160px;
   text-overflow: ellipsis;
   overflow-y: auto
-
 }
 
 .menu__item-divider {
@@ -575,7 +588,7 @@ calculating__divider {
 }
 
 #foto {
-  ext-align: center;
+  text-align: center;
   display: table-cell;
   vertical-align: middle;
   margin-bottom: 0px;
@@ -788,7 +801,7 @@ select {
 }
 
 input[type="file"] {
-  display:none
+  display: none
 }
 
 .modal .btn {
@@ -812,11 +825,11 @@ input[type="file"] {
 
 @keyframes fade {
   from {
-      opacity: 0.1;
+    opacity: 0.1;
   }
 
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
@@ -886,8 +899,9 @@ input[type="file"] {
 }
 
 .button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
+
 .button:active {
   width: 202px;
   height: 32px;
@@ -922,23 +936,23 @@ input[type="file"] {
 }
 
 .user__form {
-    display: block;
-    margin-top: 10px;
-    padding-left: 3px;
+  display: block;
+  margin-top: 10px;
+  padding-left: 3px;
 }
 
 .user {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .user__form:focus {
   outline: none;
-  border-color:#53ed39;
+  border-color: #53ed39;
   border-radius: 3px;
 }
 
 #show_calc:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .box__images {
