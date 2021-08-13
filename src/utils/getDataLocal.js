@@ -42,7 +42,7 @@ const getCardsFirstPage =  () => {
         let count = 0;
         data.forEach(card => {
             count++;
-            if (count <= 3) {
+            if (count <= 4) {
                 container.innerHTML += `
                                     <div class="menu__item card" >
                                     <img src="${card.img}" alt="fitnes">

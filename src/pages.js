@@ -1,8 +1,7 @@
-import {getCrds,allMenu,nav} from "./utils/getDataLocal";
-import {closeModal,openModal,modalTrigger,modal,modalCloseBtn,addCard,addCardBtn,order,firstName,phone} from "./components/feedBack";
-import {addNewCard, dataServer,addUserPhone,btnSendmodel,btnDark,btnTwo} from "./utils/postDataLocal";
-import {getlocalCard,loadComments,aMenu,addComments} from "./utils/openCard";
-// import {btnAddComment} from "./utils/addComments";
+import {getCrds,nav} from "./utils/getDataLocal";
+import {closeModal,openModal,modalTrigger,modal,modalCloseBtn,addCard,modelInCard} from "./components/feedBack";
+import {addComments,btnSendmodel2} from "./utils/postDataLocal";
+import {getlocalCard,loadComments,aMenu} from "./utils/openCard";
 
 const rout = () => {
 
@@ -33,21 +32,11 @@ const rout = () => {
         }
     });
 
-    // Link card
-
-    allMenu.addEventListener('click',(event) => {
-        const card = event.target;
-
-        if (card.tagName === 'IMG' || card.matches('div.card')) {
-
-            // location.href='templateCardComment.html';
-        }
-    });
-
     // Model
 
     modalTrigger.addEventListener('click', () => {
-        openModal(modal);
+        console.log('ПЕРВАЯ СТРОНИЦА - ОТКРЫТИЕ')
+        openModal(modal,btnSendmodel2);
     });
     modalCloseBtn.forEach((el) => {
             el.addEventListener('click', () => {
@@ -68,29 +57,18 @@ const rout = () => {
             }
     });
 
-    
-
-//     // Add userPhon
-
-//     btnTwo.addEventListener('click', () => {
-//       console.log(btnTwo);
-//         addUserPhone(btnTwo);
-//    });
-
       // Open card
-
+      
     aMenu.addEventListener('click', (event) => {
         const card = event.target;
         if (card.tagName === 'IMG') {
             getlocalCard(card.parentElement.id);
-            setTimeout(loadComments,10); 
-            setTimeout(addComments,10);
+            setTimeout(loadComments,50); 
+            setTimeout(addComments,50);
+            setTimeout(modelInCard,50);
         }
     });
 
-    // Add comment
-
-    // console.log(btnAddComment)
 };
 
 rout();

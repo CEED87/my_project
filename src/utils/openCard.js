@@ -1,9 +1,9 @@
-// import {btnAddComment} from "./addComments";
+import regeneratorRuntime from "regenerator-runtime";
 
 const aMenu = document.querySelector('.all__menu');
-let boxComment;
+let boxComment = '';
 
-const getlocalCard = (id) => {
+const getlocalCard =  (id) => {
     fetch('http://localhost:3000/cards').then(res => {
        return res.json();
     }).then(data => {
@@ -21,7 +21,7 @@ const getlocalCard = (id) => {
                     </nav>
                 </div>
                 <div class="header__right-block">
-                    <button data-modal class="btn btn_white">Связаться с нами</button>
+                    <button id="mod" data-modal class="btn btn_white">Связаться с нами</button>
                 </div>
             </header>
             <div class="cardCom">
@@ -40,7 +40,7 @@ const getlocalCard = (id) => {
                         <label for="uName" class="user__form">Введите ваше имя</label>
                         <input type="text" name="uName" class="user__form" id="user__name">
                         <input type="text" name="" class="user__form" id="text__coment">
-                        <div class="button">Добавить комментарий</div>
+                        <div class="button" id="${card.id}">Добавить комментарий</div>
                     </div>
                 </div>
             </div>
@@ -55,9 +55,9 @@ const getlocalCard = (id) => {
                         <form action="#" name="feedback">
                             <div data-close class="modal__close">&times;</div>
                             <div class="modal__title">Мы свяжемся с вами как можно быстрее!</div>
-                            <input required placeholder="Ваше имя" name="name" type="text" class="modal__input">
-                            <input required placeholder="Ваш номер телефона" name="phone" type="phone" class="modal__input">
-                            <button class="btn btn_dark btn_min" id="btn__send__model">Перезвонить мне</button>
+                            <input required placeholder="Ваше имя" name="name" type="text" class="modal__input" data-userN>
+                            <input required placeholder="Ваш номер телефона" name="phone" type="phone" class="modal__input" data-usePh>
+                            <button class="btn btn_dark btn_min" id="btnThree">Перезвонить мне</button>
                         </form>
                     </div>
                 </div>
@@ -82,38 +82,35 @@ const getlocalCard = (id) => {
                     </div>
                 </div>
             </footer>`;
-               
-            if (card.comments.length != 0) {
-                boxComment = document.createElement('div');
-                boxComment.classList.add('ribbon');
-                card.comments.forEach(com => {
-                    boxComment.innerHTML += `<div class="user__comment">
-                                                <h3 class="user">${com.ucerNane}</h3>
-                                                <div>${com.comment}</div>
-                                            </div>`;
-                });  
-                return  boxComment;
-            }        
+
+            fetch('http://localhost:3000/comments').then(res => {
+                    return res.json();
+                }).then(data => {
+                    boxComment = document.createElement('div');
+                    boxComment.classList.add('ribbon');
+                    data.forEach(comment => {
+                        if (comment.cardId == card.id) {
+                            boxComment.innerHTML += `<div class="user__comment">
+                                                         <h3 class="user">${comment.ucerName}</h3>
+                                                         <div>${comment.comment}</div>
+                                                     </div>`;                       
+                            return  boxComment;
+                        } 
+                        
+                    });
+                });
             }
         });
     });
 };
 
-const loadComments = () => {
+const loadComments =  () => {
    const userComments = document.querySelector('.user__comments');
    const span = userComments.querySelector('span');
-   if (boxComment != '') {
-    userComments.replaceChild(boxComment,span);
+
+   if (boxComment.firstChild != null) {
+        userComments.replaceChild(boxComment,span);
    }
-   
 };
 
-const addComments = () => {
-    const btnAddComment = document.querySelector('.button');
-    btnAddComment.addEventListener('click', () => {
-        console.log(634785637465736);
-    });
-    console.log(btnAddComment);
-};
-
-export {getlocalCard,loadComments,aMenu,addComments};
+export {getlocalCard,loadComments,aMenu};

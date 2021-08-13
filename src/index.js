@@ -2,24 +2,13 @@
 import "./style/main.scss";
 import {calculateActive,calculateCalories,parameters,gend,activity,showCalculator,calculator} from "./components/colculator";
 import {getCardsFirstPage} from "./utils/getDataLocal";
-import {setCount,arrows,arrowRight,arrowLeft,total} from "./components/miniSlider";
+import {setCount,arrowRight,arrowLeft,total,imgSlide,offerSlide,current,tabheaderItem,tabContent} from "./components/miniSlider";
 import {closeModal,openModal,modalTrigger,modal,modalCloseBtn,addCard,addCardBtn,order,firstName,phone} from "./components/feedBack";
-import {addNewCard, dataServer,addUserPhone,btnSendmodel,btnDark} from "./utils/postDataLocal";
+import {addNewCard,dataServer,addUserPhone,btnSendmodel,btnDark} from "./utils/postDataLocal";
+import {myDate,setClock} from "./components/timer";
 
 const router = () => {
-    
-    const imgSlide = document.querySelector('.mini').children;
-    const offerSlide = document.querySelector('.offer__slide').firstElementChild;
-    const current = arrows.querySelector('#current');
-    let count = 1;
-    offerSlide.src = imgSlide[count-1].src;
-    total.textContent = imgSlide.length;
-
-    // Tabe_menu && slider variables
-
-    const tabheaderItem = document.querySelector('.tabheader__items');
-    const tabContent = document.querySelector('.tabcontent');
-
+     
     // calculator
 
     showCalculator.addEventListener('click', () => {
@@ -43,6 +32,10 @@ const router = () => {
     getCardsFirstPage();
 
     // miniSlider
+
+    let count = 1;
+    offerSlide.src = imgSlide[count-1].src;
+    total.textContent = imgSlide.length;
 
     arrowRight.addEventListener('click', () => {
         if (current.textContent <= imgSlide.length-1) {
@@ -92,7 +85,8 @@ const router = () => {
     // Model feedback
 
     modalTrigger.addEventListener('click', () => {
-        openModal(modal);
+        console.log('ПЕРВАЯ СТРОНИЦА - ОТКРЫТИЕ')
+        openModal(modal,btnSendmodel);
     });
     modalCloseBtn.forEach((el) => {
             el.addEventListener('click', () => {
@@ -140,21 +134,18 @@ const router = () => {
 
     // Add userPhone
    
-    btnSendmodel.addEventListener('click', () => {
-         addUserPhone(btnSendmodel);
-    });
+    // btnSendmodel.addEventListener('click', () => {
+    //      addUserPhone(btnSendmodel);
+    // });
 
     btnDark.addEventListener('click', () => {
         addUserPhone(btnDark);
    });
-    
 
-    // Page Cards
+   // Timer
 
-    console.log(btnSendmodel)
-// const p = document.querySelector('.cards')
-    
-   
+   setClock('.timer', myDate);
+//    console.log(current)
 };
 
 router();
