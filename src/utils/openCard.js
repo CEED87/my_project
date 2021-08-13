@@ -2,6 +2,7 @@ import regeneratorRuntime from "regenerator-runtime";
 
 const aMenu = document.querySelector('.all__menu');
 let boxComment = '';
+let boxFoto = '';
 
 const getlocalCard =  (id) => {
     fetch('http://localhost:3000/cards').then(res => {
@@ -10,6 +11,7 @@ const getlocalCard =  (id) => {
         data.forEach(card => {
             if (card.id == id) {
                 const cardCom = document.querySelector('.cards');
+                boxFoto = card.img;
                 cardCom.innerHTML = `<header class="header">
                 <div class="header__left-block">
                     <div class="header__logo">
@@ -25,11 +27,11 @@ const getlocalCard =  (id) => {
                 </div>
             </header>
             <div class="cardCom">
-                <div class="images">
-                    <img src="${card.img}" alt="fitnes">
-                </div>
-                <h3 class="menu__item-subtitle">${card.menu}</h3>
-                <div class="menu__item-descr">${card.text}
+            <div class="box__images">
+                <div class="images"></div>
+            </div>
+                <h3 class="menu__item-subtitle" id="title__card">${card.menu}</h3>
+                <div class="menu__item-descr" id="info__card">${card.text}
                 </div>
             
                 <div class="divider"></div>
@@ -39,7 +41,7 @@ const getlocalCard =  (id) => {
                     <div class="comment__forma">
                         <label for="uName" class="user__form">Введите ваше имя</label>
                         <input type="text" name="uName" class="user__form" id="user__name">
-                        <input type="text" name="" class="user__form" id="text__coment">
+                        <textarea type="text" name="" class="user__form" id="text__coment"></textarea>
                         <div class="button" id="${card.id}">Добавить комментарий</div>
                     </div>
                 </div>
@@ -96,19 +98,21 @@ const getlocalCard =  (id) => {
                                                      </div>`;                       
                             return  boxComment;
                         } 
-                        
                     });
                 });
+                return boxFoto;
             }
         });
     });
 };
 
 const loadComments =  () => {
-   const userComments = document.querySelector('.user__comments');
-   const span = userComments.querySelector('span');
+    const image = document.querySelector('.images')
+    image.style.backgroundImage = `url(${boxFoto})`;
 
    if (boxComment.firstChild != null) {
+        const userComments = document.querySelector('.user__comments');
+        const span = userComments.querySelector('span');
         userComments.replaceChild(boxComment,span);
    }
 };

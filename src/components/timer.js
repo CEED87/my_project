@@ -1,6 +1,6 @@
 
 
-const myDate = '2021-08-13';
+const myDate = '2021-08-14';
 
  const getTame = (arg) => {
     const t = Date.parse(myDate) - Date.parse(new Date()),
@@ -45,7 +45,7 @@ const myDate = '2021-08-13';
          minutes.innerHTML = getZiro(t.minuts);
          seconds.innerHTML = getZiro(t.seconds);
  
-         if (t.total <= 0) {
+         if (t.total === 0) {
              clearInterval(timeInterval);
          }
      }

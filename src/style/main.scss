@@ -820,7 +820,6 @@ input[type="file"] {
   }
 }
 
-/* Текст подсказки */
 .card .tooltiptext {
   visibility: hidden;
   width: 205px;
@@ -867,7 +866,11 @@ input[type="file"] {
 }
 
 .images {
-    text-align: center;
+  height: 700px;
+  width: 1100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 40px auto;
 }
 
 .button {
@@ -895,6 +898,8 @@ input[type="file"] {
 #text__coment {
   width: 60%;
   height: 100px;
+  resize: none;
+  padding: 5px;
 }
 
 .line {
@@ -913,20 +918,18 @@ input[type="file"] {
   margin: 20px;
   border: solid #0000003d 1px;
   border-radius: 3px;
+  padding-left: 10px;
 }
 
 .user__form {
     display: block;
     margin-top: 10px;
+    padding-left: 3px;
 }
 
 .user {
     text-decoration: underline;
 }
-
-// .align {
-//   text-align: left;
-// }
 
 .user__form:focus {
   outline: none;
@@ -936,4 +939,16 @@ input[type="file"] {
 
 #show_calc:hover {
     cursor: pointer;
+}
+
+.box__images {
+  text-align: center;
+}
+
+#title__card {
+  text-align: center;
+}
+
+#info__card {
+  padding: 0 100px;
 }
