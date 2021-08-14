@@ -1,11 +1,11 @@
 
-import "./style/main.scss";
-import {calculateActive,calculateCalories,parameters,gend,activity,showCalculator,calculator} from "./components/colculator";
-import {getCardsFirstPage} from "./utils/getDataLocal";
-import {setCount,arrowRight,arrowLeft,total,imgSlide,offerSlide,current,tabheaderItem,tabContent} from "./components/miniSlider";
-import {closeModal,openModal,modalTrigger,modal,modalCloseBtn,addCard,addCardBtn,order,firstName,phone} from "./components/feedBack";
-import {addNewCard,dataServer,addUserPhone,btnSendmodel,btnDark} from "./utils/postDataLocal";
-import {myDate,setClock} from "./components/timer";
+import "../style/main.scss";
+import {calculateActive,calculateCalories,parameters,gend,activity,showCalculator,calculator} from "../components/colculator";
+import {getCardsFirstPage} from "../utils/getDataLocal";
+import {setCount,arrowRight,arrowLeft,total,imgSlide,offerSlide,current,tabheaderItem,tabContent} from "../components/miniSlider";
+import {closeModal,openModal,modalTrigger,modal,modalCloseBtn,addCard,addCardBtn,order,firstName,phone} from "../components/feedBack";
+import {addNewCard,dataServer,addUserPhone,btnSendmodel,btnDark} from "../utils/postDataLocal";
+import {myDate,setClock} from "../components/timer";
 
 const router = () => {
      
@@ -133,10 +133,6 @@ const router = () => {
     dataServer.addEventListener('click', addNewCard);
 
     // Add userPhone
-   
-    // btnSendmodel.addEventListener('click', () => {
-    //      addUserPhone(btnSendmodel);
-    // });
 
     btnDark.addEventListener('click', () => {
         addUserPhone(btnDark);
@@ -145,7 +141,7 @@ const router = () => {
    // Timer
 
    setClock('.timer', myDate);
-//    console.log(current)
+
 };
 
 router();

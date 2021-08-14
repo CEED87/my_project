@@ -6,8 +6,8 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
-    index: path.resolve(__dirname, './src/index.js'),
-    pages: path.resolve(__dirname, './src/pages.js'),
+    index: path.resolve(__dirname, './src/js/index.js'),
+    pages: path.resolve(__dirname, './src/js/pages.js'),
   },
 
   output: {
@@ -18,12 +18,12 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'webpack Boilerplate',
-      template: path.resolve(__dirname, './src/template.html'), // шаблон
+      template: path.resolve(__dirname, './src/pages/template.html'), // шаблон
       filename: 'index.html', // название выходного файла
     }),
     new HtmlWebpackPlugin({
       title: 'webpack Boilerplate',
-      template: path.resolve(__dirname, './src/templateCards.html'),
+      template: path.resolve(__dirname, './src/pages/templateCards.html'),
       filename: 'templateCards.html',
     }),
     new CleanWebpackPlugin(),

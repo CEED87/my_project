@@ -1,7 +1,7 @@
-import {getCrds,nav} from "./utils/getDataLocal";
-import {closeModal,openModal,modalTrigger,modal,modalCloseBtn,addCard,modelInCard} from "./components/feedBack";
-import {addComments,btnSendmodel2} from "./utils/postDataLocal";
-import {getlocalCard,loadComments,aMenu} from "./utils/openCard";
+import {getCrds,nav} from "../utils/getDataLocal";
+import {closeModal,openModal,modalTrigger,modal,modalCloseBtn,addCard,modelInCard} from "../components/feedBack";
+import {addComments,btnSendmodel2} from "../utils/postDataLocal";
+import {getlocalCard,loadComments,aMenu} from "../utils/openCard";
 
 const rout = () => {
 
