@@ -20,7 +20,6 @@ const openModal = (wind,addPhone) => {
     wind.classList.remove('hide');
     document.body.style.overflow = 'hidden';
     addPhone.addEventListener('click', () => {
-        console.log('ВТОРАЯ СТРАНИЦА')
         addUserPhone(addPhone);
    });
 };
@@ -29,7 +28,7 @@ const modelInCard = () => {
     const modalTrigger = document.querySelector('button[data-modal]');
     const modal = document.querySelector('[data-user]');
     const modalCloseBtn = document.querySelectorAll('[data-close]');
-    const btnAddUserPhone = document.querySelector('#btnThree')
+    const btnAddUserPhone = document.querySelector('#btnThree');
 
     modalTrigger.addEventListener('click', () => {
         openModal(modal,btnAddUserPhone);

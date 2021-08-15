@@ -27,9 +27,6 @@ const addNewCard = () => {
       }).then(res => {
         return res.json();
       });
-      // .then(data => {
-      //   console.log(data);
-      // });
     };
 
 
@@ -80,9 +77,6 @@ const addComments = () => {
     textComent.value = '';
       
   });
-
-  // console.log(btnAddComment);
-  
 };
 
 

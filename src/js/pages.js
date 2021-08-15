@@ -35,7 +35,6 @@ const rout = () => {
     // Model
 
     modalTrigger.addEventListener('click', () => {
-        console.log('ПЕРВАЯ СТРОНИЦА - ОТКРЫТИЕ')
         openModal(modal,btnSendmodel2);
     });
     modalCloseBtn.forEach((el) => {

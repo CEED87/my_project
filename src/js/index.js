@@ -85,7 +85,6 @@ const router = () => {
     // Model feedback
 
     modalTrigger.addEventListener('click', () => {
-        console.log('ПЕРВАЯ СТРОНИЦА - ОТКРЫТИЕ')
         openModal(modal,btnSendmodel);
     });
     modalCloseBtn.forEach((el) => {

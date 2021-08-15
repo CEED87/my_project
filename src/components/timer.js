@@ -1,6 +1,6 @@
 
 
-const myDate = '2021-08-14';
+const myDate = '2021-08-18';
 
  const getTame = (arg) => {
     const t = Date.parse(myDate) - Date.parse(new Date()),
