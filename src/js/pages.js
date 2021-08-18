@@ -1,24 +1,10 @@
 
 import {getCrds,nav} from "../utils/getDataLocal";
-    
-    
-
 import {closeModal,openModal,addCard,modelInCard,modal,answer,modalCloseBtn,addCardBtn,order,firstName,phone,modalTrigger} from "../components/feedBack";
+import {addComments,btnSendmodel2} from "../utils/postDataLocal";
+import {getlocalCard,loadComments,aMenu} from "../utils/openCard";
     
     
-    
-    
-
-import {
-    addComments,
-    btnSendmodel2
-} from "../utils/postDataLocal";
-import {
-    getlocalCard,
-    loadComments,
-    aMenu
-} from "../utils/openCard";
-
 const rout = () => {
 
     // Loading cards from the server

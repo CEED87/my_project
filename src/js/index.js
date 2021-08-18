@@ -4,7 +4,7 @@ import {gend,activity,showCalculator,calculator} from "../components/variables";
 import {calculateActive,calculateCalories,parameters} from "../components/colculator";
 import {getCardsFirstPage} from "../utils/getDataLocal";
 import {setCount,arrowRight,arrowLeft,total,imgSlide,offerSlide,current,tabheaderItem,tabContent} from "../components/addZero";
-import {closeModal,openModal,addCard,modelInCard,closeM,modal,answer,modalCloseBtn,addCardBtn,order,firstName,phone,modalTrigger} from "../components/feedBack";
+import {closeModal,openModal,addCard,closeM,modal,answer,modalCloseBtn,addCardBtn,order,firstName,phone,modalTrigger} from "../components/feedBack";
 import {addNewCard,dataServer,addUserPhone,btnSendmodel,btnDark} from "../utils/postDataLocal";
 import {myDate,setClock} from "../components/timer";
 
