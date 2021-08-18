@@ -1,13 +1,14 @@
 import {addUserPhone} from "../utils/postDataLocal";
 
-const modalTrigger = document.querySelector('button[data-modal]');
-const modal = document.querySelector('[data-user]');
-const modalCloseBtn = document.querySelectorAll('[data-close]');
 const addCard = document.querySelector('[data-card]');
+const modal = document.querySelector('[data-user]');
+const answer = document.querySelector('.answer');
+const modalCloseBtn = document.querySelectorAll('[data-close]');
 const addCardBtn = document.querySelector('[href="#"]');
 const order = document.querySelector('.order');
 const firstName = document.querySelector('input[name="name"]');
 const phone = document.querySelector('input[name="phone"]');
+const modalTrigger = document.querySelector('button[data-modal]');
 
 const closeModal = (wind) => {
     wind.classList.add('hide');
@@ -22,6 +23,15 @@ const openModal = (wind,addPhone) => {
     addPhone.addEventListener('click', () => {
         addUserPhone(addPhone);
    });
+};
+
+const closeM = (wind) => {
+    wind.addEventListener('click', (e) => {
+        if (e.target === wind) {
+           closeModal(wind);
+         }
+  });
+  
 };
 
 const modelInCard = () => {
@@ -53,4 +63,4 @@ const modelInCard = () => {
     });
 };
 
-export {closeModal,openModal,modalTrigger,modal,modalCloseBtn,addCard,addCardBtn,order,firstName,phone,modelInCard};
+export {closeModal,openModal,addCard,modelInCard,closeM,modal,answer,modalCloseBtn,addCardBtn,order,firstName,phone,modalTrigger};

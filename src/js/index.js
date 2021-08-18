@@ -1,9 +1,19 @@
 
 import "../style/main.scss";
-import {calculateActive,calculateCalories,parameters,gend,activity,showCalculator,calculator} from "../components/colculator";
+import {gend,activity,showCalculator,calculator} from "../components/variables";
+import {calculateActive,calculateCalories,parameters} from "../components/colculator";
 import {getCardsFirstPage} from "../utils/getDataLocal";
-import {setCount,arrowRight,arrowLeft,total,imgSlide,offerSlide,current,tabheaderItem,tabContent} from "../components/miniSlider";
-import {closeModal,openModal,modalTrigger,modal,modalCloseBtn,addCard,addCardBtn,order,firstName,phone} from "../components/feedBack";
+import {setCount,arrows,
+    arrowRight,
+    arrowLeft,
+    total,
+    imgSlide,
+    offerSlide,
+    current,
+    tabheaderItem,
+     tabContent
+    } from "../components/addZero";
+import {closeModal,openModal,addCard,modelInCard,closeM,modal,answer,modalCloseBtn,addCardBtn,order,firstName,phone,modalTrigger} from "../components/feedBack";
 import {addNewCard,dataServer,addUserPhone,btnSendmodel,btnDark} from "../utils/postDataLocal";
 import {myDate,setClock} from "../components/timer";
 
@@ -86,19 +96,18 @@ const router = () => {
 
     modalTrigger.addEventListener('click', () => {
         openModal(modal,btnSendmodel);
+        
     });
     modalCloseBtn.forEach((el) => {
             el.addEventListener('click', () => {
+                    closeModal(answer);
                     closeModal(modal);
                     closeModal(addCard);
             });
     });
 
-    modal.addEventListener('click', (e) => {
-               if (e.target === modal) {
-                    closeModal(modal);
-            }
-    });
+    closeM(modal);
+    closeM(answer);
 
     document.addEventListener('keydown', (e) => {
             if (e.code === "Escape" && modal.classList.contains('show')) {
@@ -135,12 +144,18 @@ const router = () => {
 
     btnDark.addEventListener('click', () => {
         addUserPhone(btnDark);
-   });
+        openModal(answer,btnDark);
+        
+        setTimeout(() => {
+            closeModal(answer);
+        },10000);
 
+   });
+   
    // Timer
 
    setClock('.timer', myDate);
-
+   
 };
 
 router();

@@ -1,45 +1,19 @@
+import regeneratorRuntime from "regenerator-runtime";
 
-// import regeneratorRuntime from “regenerator-runtime”;
-// const TASKS_LOCAL = 'http://localhost:3000/cards';
-// // const TASKS_LOCAL = 'http://work.social-server.online/tasks';
-
-// // =================
-// const getResource = async (url) => {
-//   const res = await fetch(url);
-
-//   return res.json();
-// };
-
-// const getAllCards = async () => {
-//   const res = await getResource(TASKS_LOCAL);
-// //   return res;
-//   console.log(res.json())
-// };
-
-
-// export { getAllCards };
-// // =====================
-
-
-// const getCards = () => {
-//     fetch(TASKS_LOCAL).then(res => {
-//         return res.json();
-
-//     }).then(data => {
-//          console.log(data)
-//     })
-
-// }
-
+const CARDS_LOCAL = 'http://localhost:3000/cards';
 const allMenu = document.querySelector('.all__menu');
 const nav = document.querySelector('nav');
 
-const getCardsFirstPage =  () => {
+const getResource = async () => {
+    const res = await fetch(CARDS_LOCAL);
+    return res.json();
+  };
+
+  const getCardsFirstPage = async () => {
+    const data = await getResource();
     const container = document.querySelector('div[data-cards]');
-    fetch('http://localhost:3000/cards').then(res => {
-        return res.json();
-    }).then(data => {
-        let count = 0;
+    let count = 0;
+
         data.forEach(card => {
             count++;
             if (count <= 3) {
@@ -55,20 +29,15 @@ const getCardsFirstPage =  () => {
                                     </div>
                                 </div>
                                     `;
-            }
-            
+            }  
         });
-    });
-};
+    };
 
-const getCrds = () => {
-    fetch('http://localhost:3000/cards').then(res => {
-       return res.json();
-    }).then(data => {
-        
+    const getCrds = async () => {
+        const data = await getResource();
         data.forEach(card => {
             allMenu.innerHTML += `
-                                    <div class="menu__item card" id="${card.id}" data-category=${card.category} >
+                                    <div class="menu__item card" id="${card.id}" data-category=${card.category} data-price=${card.price}>
                                     <img src="${card.img}" alt="fitnes" class="open">
                                     <h3 class="menu__item-subtitle">${card.menu}</h3>
                                     <div class="menu__item-descr">${card.text}</div>
@@ -83,8 +52,11 @@ const getCrds = () => {
                                 </div>
                                 `; 
         });
-    });
-};
+    };
+
+
+    
+ 
 
 
 export {getCardsFirstPage, getCrds,allMenu,nav};
