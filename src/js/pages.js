@@ -1,14 +1,14 @@
-// import {modal,modalCloseBtn,modalTrigger} from "../components/variables";
-import {
-    getCrds,
-    nav
-} from "../utils/getDataLocal";
-import {
-    closeModal,
-    openModal,
-    addCard,
-    modelInCard,modal,answer,modalCloseBtn,addCardBtn,order,firstName,phone,modalTrigger
-} from "../components/feedBack";
+
+import {getCrds,nav} from "../utils/getDataLocal";
+    
+    
+
+import {closeModal,openModal,addCard,modelInCard,modal,answer,modalCloseBtn,addCardBtn,order,firstName,phone,modalTrigger} from "../components/feedBack";
+    
+    
+    
+    
+
 import {
     addComments,
     btnSendmodel2
