@@ -8,8 +8,10 @@ import {getlocalCard,loadComments,aMenu} from "../utils/openCard";
 const rout = () => {
 
     // Loading cards from the server
-
-    getCrds();
+    if (aMenu) {
+        getCrds();
+    }
+    
 
     // Sort cards
 
@@ -82,8 +84,9 @@ const rout = () => {
     });
 
     // Open card
-
-    aMenu.addEventListener('click', (event) => {
+  
+    if (aMenu) {
+        aMenu.addEventListener('click', (event) => {
         const card = event.target;
         if (card.tagName === 'IMG') {
             getlocalCard(card.parentElement.id);
@@ -92,6 +95,8 @@ const rout = () => {
             setTimeout(modelInCard, 50);
         }
     });
+    }
+    
 };
 
 rout();

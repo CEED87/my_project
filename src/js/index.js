@@ -3,7 +3,7 @@ import "../style/main.scss";
 import {gend,activity,showCalculator,calculator} from "../components/variables";
 import {calculateActive,calculateCalories,parameters} from "../components/colculator";
 import {getCardsFirstPage} from "../utils/getDataLocal";
-import {setCount,arrowRight,arrowLeft,total,imgSlide,offerSlide,current,tabheaderItem,tabContent} from "../components/addZero";
+import {setCount,arrowRight,arrowLeft,tabheaderItem,tabContent} from "../components/addZero";
 import {closeModal,openModal,addCard,closeM,modal,answer,modalCloseBtn,addCardBtn,order,firstName,phone,modalTrigger} from "../components/feedBack";
 import {addNewCard,dataServer,addUserPhone,btnSendmodel,btnDark} from "../utils/postDataLocal";
 import {myDate,setClock} from "../components/timer";
@@ -11,50 +11,70 @@ import {myDate,setClock} from "../components/timer";
 const router = () => {
      
     // calculator
-
-    showCalculator.addEventListener('click', () => {
+    if (showCalculator) {
+        showCalculator.addEventListener('click', () => {
         calculator.classList.toggle('deployed');
     });
-
-    gend.addEventListener('click', (event) => {
+    }
+    
+    if (gend) {
+        gend.addEventListener('click', (event) => {
         calculateActive(event,gend);
     });
-    
-    activity.addEventListener('click', (event) => {
+    }
+    if (activity) {
+        activity.addEventListener('click', (event) => {
         calculateActive(event,activity);
     });
+    }
     
-    calculateCalories();
+    
+        calculateCalories();
+    
+    
 
     parameters();
+    
+    
 
     // loading cards from the server
 
     getCardsFirstPage();
 
     // miniSlider
-
+    const imgSlide = document.querySelector('.mini').children;
+    const total = document.querySelector('#total');
+    const offerSlide = document.querySelector('.offer__slide').firstElementChild;
+    const current = document.querySelector('#current');
     let count = 1;
     offerSlide.src = imgSlide[count-1].src;
-    total.textContent = imgSlide.length;
-
-    arrowRight.addEventListener('click', () => {
+    if (total) {
+        total.textContent = imgSlide.length;
+    }
+    
+    if (imgSlide && current) {
+        arrowRight.addEventListener('click', () => {
         if (current.textContent <= imgSlide.length-1) {
             ++count;
             offerSlide.src = imgSlide[count-1].src;
             setCount(count, current);
         } 
     });
+    }
+    
         
     arrowLeft.addEventListener('click', () => {
-        if (current.textContent > 1) {
+        if (current.textContent > 1 && imgSlide) {
             --count;
             offerSlide.src = imgSlide[count-1].src;
             setCount(count, current);
         }
     });
-
-    setCount(imgSlide.length, total);
+    
+    if (total && imgSlide) {
+        setCount(imgSlide.length, total);
+    }
+    
 
     // Tabe_menu && slider
     

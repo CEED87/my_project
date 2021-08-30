@@ -20,9 +20,12 @@ const openModal = (wind,addPhone) => {
     wind.classList.add('show');
     wind.classList.remove('hide');
     document.body.style.overflow = 'hidden';
-    addPhone.addEventListener('click', () => {
+    if (addPhone) {
+        addPhone.addEventListener('click', () => {
         addUserPhone(addPhone);
    });
+    }
+    
 };
 
 const closeM = (wind) => {
